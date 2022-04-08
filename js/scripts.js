@@ -9,14 +9,24 @@ function newItem() {
     );
   }
 
-  $('li').on('dblclick', (event) => {
+  function strikeItem(event) {
     $target = $(event.target);
-    $target.addClass('strike');
-  });
+
+    if ($target.hasClass('strike')) {
+      $target.removeClass('strike');
+    } else {
+      $target.addClass('strike');
+    }
+  }
 
   $('li')
     .last()
     .append($('<crossOutButton></>').append(document.createTextNode('X')));
+
+
+  $('li').unbind().dblclick('dblclick', (event) => {
+    strikeItem(event);
+  });
 
   $('crossOutButton').on('click', (event) => {
     $target = $(event.target).parent();
@@ -24,5 +34,4 @@ function newItem() {
   });
 
   $('#list').sortable();
-  
 }
