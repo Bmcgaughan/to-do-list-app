@@ -9,24 +9,21 @@ function newItem() {
     );
   }
 
-  function strikeItem(event) {
-    $target = $(event.target);
-
-    if ($target.hasClass('strike')) {
-      $target.removeClass('strike');
-    } else {
-      $target.addClass('strike');
-    }
-  }
 
   $('li')
     .last()
     .append($('<crossOutButton></>').append(document.createTextNode('X')));
 
-
-  $('li').unbind().dblclick('dblclick', (event) => {
-    strikeItem(event);
-  });
+  $('li')
+    .unbind()
+    .dblclick('dblclick', (event) => {
+      $target = $(event.target);
+      if ($target.hasClass('strike')) {
+        $target.removeClass('strike');
+      } else {
+        $target.addClass('strike');
+      }
+    });
 
   $('crossOutButton').on('click', (event) => {
     $target = $(event.target).parent();
