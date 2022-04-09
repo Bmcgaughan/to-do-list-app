@@ -29,10 +29,8 @@ function newItem() {
     $target.addClass('delete');
   });
 
-
-
   $('#list').sortable();
-  $('#input').val('')
+  $('#input').val('');
 }
 
 $('#list').on('dblclick', 'li', (event) => {
