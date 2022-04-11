@@ -13,6 +13,7 @@ function newItem() {
     .last()
     .append($('<crossOutButton></>').append(document.createTextNode('X')));
 
+    
   //   $('li')
   //     .unbind()
   //     .dblclick((event) => {
@@ -30,7 +31,7 @@ function newItem() {
   });
 
   $('#list').sortable();
-  $('#input').val('');
+  $('#input').val('')
 }
 
 $('#list').on('dblclick', 'li', (event) => {
